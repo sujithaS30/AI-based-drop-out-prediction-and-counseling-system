@@ -11,33 +11,105 @@
             <h2>EduPredict AI</h2>
             <nav>
                 <ul>
-                    <li>Dashboard</li>
-                    <li>Student Records</li>
-                    <li>Risk Alerts</li>
-                    <li>Settings</li>
+                    <li class="nav-item active" data-target="dashboard"><a href="#">Dashboard</a></li>
+                    <li class="nav-item" data-target="records"><a href="#">Student Records</a></li>
+                    <li class="nav-item" data-target="alerts"><a href="#">Risk Alerts</a></li>
+                    <li class="nav-item" data-target="settings"><a href="#">Settings</a></li>
                 </ul>
             </nav>
         </aside>
 
         <main class="main-content">
-            <header>
-                <h1>Risk Assessment Dashboard</h1>
-            </header>
             
-            <section class="data-section">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                            <th>Attendance</th>
-                            <th>Marks</th>
-                            <th>AI Prediction</th>
-                        </tr>
-                    </thead>
-                    <tbody id="student-list">
-                        </tbody>
-                </table>
-            </section>
+            <div id="dashboard-section" class="content-section">
+                <header>
+                    <h1>Risk Assessment Dashboard</h1>
+                </header>
+                <section class="data-section">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Attendance</th>
+                                <th>Marks</th>
+                                <th>AI Prediction</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-list">
+                            </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="records-section" class="content-section" style="display: none;">
+                <header>
+                    <h1>Student Records & Counseling</h1>
+                </header>
+                <section class="data-section">
+                    <p style="margin-bottom: 20px; color: #555;">Select a student to update their counseling date and professional remarks:</p>
+                    <table style="margin-bottom: 30px;">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Attendance</th>
+                                <th>Marks</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="records-list">
+                            </tbody>
+                    </table>
+
+                    <div id="counseling-form-container" style="display:none; background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        <h3 style="margin-bottom: 15px; color: #2c3e50;">Update Counseling for <span id="selected-student-name" style="color: #3498db;"></span></h3>
+                        <input type="hidden" id="counseling-student-id">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Counseling Date:</label>
+                            <input type="date" id="counseling-date" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display:block; margin-bottom: 5px; font-weight: bold;">Remarks / Actions:</label>
+                            <textarea id="counseling-remarks" rows="3" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;" placeholder="Enter counseling feedback..."></textarea>
+                        </div>
+                        <button id="save-counseling-btn" style="background: #27ae60; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Save Counseling Data</button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="alerts-section" class="content-section" style="display: none;">
+                <header>
+                    <h1>Risk Alerts (High Risk Students)</h1>
+                </header>
+                <section class="data-section">
+                    <table style="border: 1px solid #e74c3c;">
+                        <thead>
+                            <tr style="background: #e74c3c;">
+                                <th style="background: #e74c3c;">Critical Student Name</th>
+                                <th style="background: #e74c3c;">Attendance Rate</th>
+                                <th style="background: #e74c3c;">Academic Marks</th>
+                                <th style="background: #e74c3c;">AI Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="alerts-list">
+                            </tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="settings-section" class="content-section" style="display: none;">
+                <header>
+                    <h1>System Settings</h1>
+                </header>
+                <section class="data-section" style="background: white; padding: 25px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <h3 style="margin-bottom: 15px; color: #2c3e50;">Model & Framework Status</h3>
+                    <p style="margin-bottom: 10px;"><strong>Backend API:</strong> Flask (Running on Port 5000)</p>
+                    <p style="margin-bottom: 10px;"><strong>Database:</strong> SQLite3 (`database.db` initialized)</p>
+                    <p style="margin-bottom: 20px;"><strong>AI Engine:</strong> Scikit-Learn DecisionTreeClassifier (`model.pkl` deployed)</p>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 20px;">
+                    <p style="color: #777; font-style: italic;">EduPredict AI Academic System Version 1.0.0 - Fully configured.</p>
+                </section>
+            </div>
+
         </main>
     </div>
     <script src="script.js"></script>

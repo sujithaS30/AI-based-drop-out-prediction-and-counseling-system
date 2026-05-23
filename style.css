@@ -1,16 +1,128 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-.container { display: flex; height: 100vh; }
+/* Base Reset */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: sans-serif; 
+}
 
-.sidebar { width: 250px; background: #2c3e50; color: white; padding: 20px; }
-.sidebar h2 { margin-bottom: 30px; color: #3498db; }
-.sidebar ul { list-style: none; }
-.sidebar li { padding: 15px 0; border-bottom: 1px solid #34495e; cursor: pointer; }
+.container { 
+    display: flex; 
+    height: 100vh; 
+}
 
-.main-content { flex: 1; padding: 30px; background: #f4f7f6; }
-table { width: 100%; border-collapse: collapse; background: white; }
-th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
-th { background: #3498db; color: white; }
+/* Sidebar Styles */
+.sidebar { 
+    width: 250px; 
+    background: #2c3e50; 
+    color: white; 
+    padding: 20px; 
+}
 
-/* Status Styles */
-.high-risk { color: #e74c3c; font-weight: bold; }
-.safe { color: #27ae60; font-weight: bold; }
+.sidebar h2 { 
+    margin-bottom: 30px; 
+    color: #3498db; 
+}
+
+.sidebar ul { 
+    list-style: none; 
+}
+
+/* Sidebar Items Navigation CSS */
+.sidebar li { 
+    border-bottom: 1px solid #34495e; 
+    cursor: pointer; 
+    transition: background 0.3s ease;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 15px 10px;
+    width: 100%;
+}
+
+/* Hover Effect */
+.sidebar li:hover {
+    background: #34495e;
+}
+
+/* Active Navigation Item Highlight */
+.sidebar li.active {
+    background: #2980b9; 
+    font-weight: bold;
+    border-left: 4px solid #3498db;
+}
+
+/* Main Content Section Styles */
+.main-content { 
+    flex: 1; 
+    padding: 30px; 
+    background: #f4f7f6; 
+    overflow-y: auto; /* Options adhighama aana page scroll aavatharkaga */
+}
+
+/* Smooth Tab Switching Animation */
+.content-section {
+    animation: fadeIn 0.4s ease;
+}
+
+header h1 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+/* Table Design Layout */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: white; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+th, td { 
+    padding: 15px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+}
+
+th { 
+    background: #3498db; 
+    color: white; 
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Action Button Inside Student Records */
+.action-btn {
+    transition: background 0.2s ease;
+}
+.action-btn:hover {
+    background: #2980b9 !important;
+}
+
+/* Save Counseling Submit Button CSS */
+#save-counseling-btn:hover {
+    background: #219653 !important;
+}
+
+.high-risk { 
+    color: #e74c3c; 
+    font-weight: bold; 
+}
+
+.safe { 
+    color: #27ae60; 
+    font-weight: bold; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
